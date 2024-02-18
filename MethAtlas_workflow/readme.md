@@ -4,4 +4,4 @@ The sequence of steps to follow is:
 2. Next, proceed to execute the gen_mixture.py script, thereby creating FullAtlas.csv files tailored for every individual depth filtering condition.
 3. Continue with invoking other script files as necessary to perform corresponding procedures.
 
-It is highly recommended to consult the user guide and precautions detailed within the MethAtlas project on GitHub at https://github.com/nloyfer/meth_atlas prior to implementing any part of this codebase in your work.
+It is highly recommended to consult the user guide and preparation detailed within the MethAtlas project on GitHub at https://github.com/nloyfer/meth_atlas prior to implementing any part of this codebase in your work.
