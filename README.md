@@ -22,7 +22,7 @@ This file is used to evaluate the cell type specificity and homeostasis of the r
 3.2 Evaluation_depth_filter:
 This file contains codes to evaluate the influence of sequencing depth filters.
 
-3.3 Evaluation_missing_markers/cell_type(s)
+3.3 Evaluation_missing_markers&cell_type(s)
 This file contains codes to assess the impact of missing markers.
 
 3.4 Evaluation_metrics
