@@ -1,3 +1,4 @@
+#!/bin/bash
 ##UXM_workflow##
 #UXM_deconvolution
 
