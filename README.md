@@ -4,8 +4,8 @@ Systematic Evaluation of Cell Type Deconvolution Methods for Plasma Cell-free DN
 This repository contains scripts that were used to generate resutls in paper titled "Systematic Evaluation of Cell Type Deconvolution Methods for Plasma Cell-free DNA".You can access this article via https://biorxiv.org/cgi/content/short/2024.03.25.586507v1.
 
 1. DataProcessing: This file plays a pivotal role in handling data pre-processing for the entire benchmarking endeavor. 
-gen_Distributions.ipynb：This script is used to generate two distribution files to facilitate the creation of cfdna mixtures in subsequent research.
-preProcessing.ipynb：This script is used to perform data pre-processing, including categorization and generation of data required for further research.
+gen_Distributions.ipynb: This script is used to generate two distribution files to facilitate the creation of cfdna mixtures in subsequent research.
+preProcessing.ipynb: This script is used to perform data pre-processing, including categorization and generation of data required for further research.
 
 2. Deconvlution: This file contains deconvolution codes for five methods.
 
