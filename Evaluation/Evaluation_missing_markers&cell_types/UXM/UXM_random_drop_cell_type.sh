@@ -1,3 +1,4 @@
+#!/bin/bash
 ##UXM_workflow##
 #Evaluation of cell type(s) in the reference methylation atlas
 
