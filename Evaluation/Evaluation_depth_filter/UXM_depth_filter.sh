@@ -1,3 +1,4 @@
+#!/bin/bash
 ##UXM_workflow##
 #Evaluation of sequencing depth filter thresholds in the reference methylation atlas
 
