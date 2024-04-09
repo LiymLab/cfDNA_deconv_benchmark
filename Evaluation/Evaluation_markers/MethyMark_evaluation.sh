@@ -5,7 +5,7 @@
 #convert the genome coordinates of CpGs from hg19 to hg38
 for i in Gastric Esophagus Adipose_Tissue Small_Intestine Aorta Liver Lung Neurosphere_Cortex Neurosphere_GanEmi Breast_Luminal_Epithelial Breast_Myoepithelial Brain_Germinal_Matrix Ovary Sigmoid_Colon Pancreas  #15 cell types
 do
-	./liftOver ${i}.bed hg19ToHg38.over.chain.gz output_dir_${i}.bed unMapped
+    ./liftOver ${i}.bed hg19ToHg38.over.chain.gz output_dir_${i}.bed unMapped
     cat Neurosphere*bed > output_dir_Neurosphere.bed
     cat Pancreas.bed Lung.bed Aorta.bed Liver.bed > Endothelium.bed 
 done
