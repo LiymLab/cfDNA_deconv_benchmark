@@ -5,11 +5,12 @@
 # For data of different distributions, the workflow is the same
 
 workplace = 'path/workplace' # the path for storing input files
+depth = 15 # median depth filter
 
 # Generate reference methylation atlas
 # ref_data: input file for selecting markers
 # markers: result of selected markers
-python celfeer/scripts/markers.py ${workplace}/ref_data ${workplace}/markers 100 35 ${i} 0 True original
+python celfeer/scripts/markers.py ${workplace}/ref_data ${workplace}/markers 100 35 ${depth} 0 True original
 
 # Deconvolution
 # full_input_data: input file for deconvolution
