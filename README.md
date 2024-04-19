@@ -6,6 +6,7 @@ gen_Distributions.ipynb: This script is used to generate two distribution files 
 preProcessing.ipynb: This script is used to perform data pre-processing, including categorization and generation of data required for further research.
 2. Deconvolution: This file contains deconvolution codes for five methods.
 3. Evaluation: This file contains codes to evaluate five methods.
+
    3.1 Markers_selection: This file is used to evaluate the cell type specificity and homeostasis of the reference markers selected by each deconvolution method.
    MethyMark_evaluation.sh: This script is to evaluate the specificity of the methylation reference markers selected for each method in different cell types.
    ImmuMethy_evaluation.sh: This script is to evaluate the stability of the methylation reference markers selected for each method across diseases.
