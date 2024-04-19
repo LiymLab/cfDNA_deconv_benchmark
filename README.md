@@ -8,8 +8,7 @@ preProcessing.ipynb: This script is used to perform data pre-processing, includi
 2. Deconvolution: This file contains deconvolution codes for five methods.
 3. Evaluation: This file contains codes to evaluate five methods.
 
-   3.1 Markers_selection: This file is used to evaluate the cell type specificity and homeostasis of the reference markers selected by each deconvolution method.
-<br>
+   3.1 Markers_selection: This file is used to evaluate the cell type specificity and homeostasis of the reference markers selected by each deconvolution method.<br>
 MethyMark_evaluation.sh: This script is to evaluate the specificity of the methylation reference markers selected for each method in different cell types.<br>
 ImmuMethy_evaluation.sh: This script is to evaluate the stability of the methylation reference markers selected for each method across diseases.
 
