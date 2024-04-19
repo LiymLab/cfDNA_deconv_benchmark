@@ -10,10 +10,8 @@ This repository contains scripts that were used to generate resutls in paper tit
 3. Evaluation: This file contains codes to evaluate five methods.
 
    3.1 Markers_selection: This file is used to evaluate the cell type specificity and homeostasis of the reference markers selected by each deconvolution method.
-
-      MethyMark_evaluation.sh: This script is to evaluate the specificity of the methylation reference markers selected for each method in different cell types.
-
-      ImmuMethy_evaluation.sh: This script is to evaluate the stability of the methylation reference markers selected for each method across diseases.
+       MethyMark_evaluation.sh: This script is to evaluate the specificity of the methylation reference markers selected for each method in different cell types.
+       ImmuMethy_evaluation.sh: This script is to evaluate the stability of the methylation reference markers selected for each method across diseases.
 
    3.2 Evaluation_depth_filter: This file contains codes to evaluate the influence of sequencing depth filters.
 
