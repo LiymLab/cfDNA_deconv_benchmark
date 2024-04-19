@@ -6,7 +6,7 @@
 
 workplace = 'path/workplace' # You can set your own work path
 
-# Then, modify some parameters according to actual demands to generate reference methylation atlas
+# Then, modify parameters including input_file, output_file, summed_file, number_tissues and depth_filter in tim.sh which CelFiE offers according to actual demands to generate reference methylation atlas
 
 for i in 15 20 25 30 35 40 45 50 60 70 80 90 100
 do
