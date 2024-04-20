@@ -9,13 +9,13 @@ preProcessing.ipynb: This script is used to perform data pre-processing, includi
 3. Evaluation: This file contains codes to evaluate five methods.
 
    3.1 Markers_selection: This file is used to evaluate the cell type specificity and homeostasis of the reference markers selected by each deconvolution method.<br>
-MethyMark_evaluation.sh: This script is to evaluate the specificity of the methylation reference markers selected for each method in different cell types.<br>
-ImmuMethy_evaluation.sh: This script is to evaluate the stability of the methylation reference markers selected for each method across diseases.
+&emsp;&emsp;MethyMark_evaluation.sh: This script is to evaluate the specificity of the methylation reference markers selected for each method in different cell types.<br>
+&emsp;&emsp;ImmuMethy_evaluation.sh: This script is to evaluate the stability of the methylation reference markers selected for each method across diseases.
 
    3.2   Evaluation_depth_filter: This file contains codes to evaluate the influence of sequencing depth filters.
 
    3.3 Evaluation_missing_markers/cell_type(s): This file contains codes to assess the impact of missing markers.
 
-   3.4 Evaluation_metrics: This file is used to calculate Pearson correlation coefficients and root mean squared errors (RMSE) between cell type or sample proportions derived from each cfDNA mixture with known compositions.<br>
-  &emsp;&emsp;cell_type_metrics_evaluation.py: This script is to compute Pearson correlation and root mean squared errors (RMSE) between cell type proportions derived from each cfDNA mixture with known compositions.<br>
-  &emsp;&emsp;sample_metrics_evaluation.py: This script is to compute Pearson correlation and root mean squared errors (RMSE) between sample proportions derived from each cfDNA mixture with known compositions.
+   3.4 Evaluation_metrics: This file is used to calculate the Pearson correlation and the root-mean-square error (RMSE) values, between each method's predicted cell type proportions and ground-truth cell type proportions used in generating the in silico cfDNA mixtures.<br>
+  &emsp;&emsp;cell_type_metrics_evaluation.py: This script is to compute Pearson correlation and root mean squared errors (RMSE) between the known proportions under constrained random distribution and the predicted proportions from different deconvolution methods.<br>
+  &emsp;&emsp;sample_metrics_evaluation.py: This script is to compute Pearson correlation and root mean squared errors (RMSE) between the known proportions of the reference cell types in the 100 cfDNA mixtures and the computed proportions from various deconvolution methods.
