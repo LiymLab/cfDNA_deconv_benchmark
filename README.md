@@ -17,5 +17,5 @@ preProcessing.ipynb: This script is used to perform data pre-processing, includi
    3.3 Evaluation_missing_markers/cell_type(s): This file contains codes to assess the impact of missing markers.
 
    3.4 Evaluation_metrics: This file is used to calculate the Pearson correlation and the root-mean-square error (RMSE) values.<br>
-  &emsp;&emsp;cell_type_metrics_evaluation.py: This script is to compute Pearson correlation and root mean squared errors (RMSE) between the known proportions under uniform/constrained-random-distribution and the predicted proportions from different deconvolution methods.<br>
+  &emsp;&emsp;cell_type_metrics_evaluation.py: This script is to compute Pearson correlation and root mean squared errors (RMSE) between the known proportions under uniform/constrained-random distribution and the predicted proportions from different deconvolution methods.<br>
   &emsp;&emsp;sample_metrics_evaluation.py: This script is to compute Pearson correlation and root mean squared errors (RMSE) between the known proportions of the reference cell types in the 100 cfDNA mixtures and the computed proportions from various deconvolution methods.
