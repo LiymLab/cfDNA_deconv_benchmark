@@ -17,3 +17,6 @@ This repository contains scripts that were used to generate resutls in paper tit
 	&emsp;&emsp;**3.4 Evaluation_metrics/**: This directory stores scripts used to calculate the Pearson correlation and the root-mean-square error (RMSE) values.<br>
 	&emsp;&emsp;_cell_type_metrics_evaluation.py_: This script is used to compute Pearson correlation and RMSE between the ground-truth cell type proportions and the predicted proportions from different deconvolution methods for each cell type in the reference atlas across 100 cfDNA mixtures.<br>
 	&emsp;&emsp;_sample_metrics_evaluation.py_: This script is used to compute Pearson correlation and RMSE between the ground-truth cell type proportions and the predicted proportions from different deconvolution methods for each cfDNA mixture.
+
+## Authors
+- Yumei Li (yumei.li@uci.edu)
