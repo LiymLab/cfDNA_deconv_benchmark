@@ -19,4 +19,8 @@ This repository contains scripts that were used to generate resutls in paper tit
 	&emsp;&emsp;_sample_metrics_evaluation.py_: This script is used to compute Pearson correlation and RMSE between the ground-truth cell type proportions and the predicted proportions from different deconvolution methods for each cfDNA mixture.
 
 ## Authors
+- TongYue Sun (suntongyue@foxmail.com)
+- Jinqi Yuan (jqyuanjqyuan24@stu.suda.edu.cn)
+- Yacheng Zhu (2030416004@stu.suda.edu.cn)
 - Yumei Li (yumei.li@uci.edu)
+  
