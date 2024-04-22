@@ -21,6 +21,6 @@ This repository contains scripts that were used to generate resutls in paper tit
 ## Authors
 - TongYue Sun (suntongyue@foxmail.com)
 - Jinqi Yuan (jqyuanjqyuan24@stu.suda.edu.cn)
-- Yacheng Zhu (2030416004@stu.suda.edu.cn)
+- Yacheng Zhu (yczhu2002@stu.suda.edu.cn)
 - Yumei Li (yumei.li@uci.edu)
   
