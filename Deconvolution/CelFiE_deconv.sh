@@ -12,4 +12,4 @@ workplace = 'path/workplace' # the path for storing input files
 # Deconvolution
 # data_input: input file for deconvolution
 # sample_output: folder storing deconvolution results
-python celfie/scripts/celfie.py ${workpace}/data_input ${workpace}/sample_output 100 -u 0
+python celfie/scripts/celfie.py ${workplace}/data_input ${workplace}/sample_output 100 -u 0
