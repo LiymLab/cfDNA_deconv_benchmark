@@ -7,7 +7,7 @@
 workplace = 'path/workplace' # You can set your own work path
 
 # deconvolution
-for i in 15 20 25 30 35 40 45 50 60 70 80 90 100
+for i in 15 20 25 30 35 40 45 50 60 70 80 90 100 150 200 250 300
 do
 	# select markers
 	python celfeer/scripts/markers.py ${workplace}/ref_data.txt ${workplace}/median_${i}/markers_median_${i}.txt 100 35 ${i} 0 True original
