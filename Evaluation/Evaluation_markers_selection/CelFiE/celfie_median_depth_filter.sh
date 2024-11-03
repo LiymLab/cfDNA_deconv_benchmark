@@ -8,7 +8,7 @@ workplace = 'path/workplace' # You can set your own work path
 
 # Then, modify parameters including input_file, output_file, summed_file, number_tissues and depth_filter in tim.sh which CelFiE offers according to actual demands to generate reference methylation atlas
 
-for i in 15 20 25 30 35 40 45 50 60 70 80 90 100
+for i in 15 20 25 30 35 40 45 50 60 70 80 90 100 150 200 250 
 do
     # get data of 250bps around selected markers
     cut -f 1-3 ${workplace}/median_${i}/sample_input_tims_summed_median_${i}.txt > ${workplace}/median_${i}/tims_median_${i}.bed
