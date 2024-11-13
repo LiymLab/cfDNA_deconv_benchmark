@@ -1,7 +1,7 @@
 #Before running this code, run the UXM_drop_markers.py script.
 
 import subprocess 
-medians = [15,20,25,30,35,40,45,50,60,70,80,90,100]
+medians = [15,20,25,30,35,40,45,50,60,70,80,90,100,150,200,250,300]
 prop = [0.1,0.2,0.3,0.4,0.5]
 
 for p in prop:
