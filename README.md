@@ -4,7 +4,10 @@ This repository contains scripts that were used to generate resutls in paper tit
 
 **1. DataProcessing/**: This directory contains scripts for data pre-processing of the benchmark study.<br>
   _gen_Distributions.ipynb_: This script is used to generate two cell type distributions for the generation of cfDNA mixtures.<br>
-  _preProcessing.ipynb_: This script is used to generate reference atlas datasets and the in silico cfDNA mixtures.
+  _gen_dirichlet.R_: This script is used to generate Dirichlet distribution for the generation of cfDNA mixtures.<br>
+  _preProcessing.ipynb_: This script is used to generate reference atlas datasets and the in silico cfDNA mixtures.<br>
+  _mix_downsample.py_: This script is used to generate additional in silico datasets with sample sequencing depths of 1, 5, 10, and 15.<br>
+  _raw_ref_filter.sh_: This script is used to downsampled the raw reference data to average CpG site coverages of 85, 71, 57, 43, 28, 14, and 3.<br>
   
 **2. Deconvolution/**: This directory contains scripts for cfDNA deconvolution analysis using the five evaluated methods.<br>
 
