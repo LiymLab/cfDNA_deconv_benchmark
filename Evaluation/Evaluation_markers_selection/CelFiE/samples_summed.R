@@ -21,12 +21,13 @@ bedtools_res <- read.table(input1)
 tims_summed <- read.table(input2)
 tims <- tims_summed[1:3]
 
-file_names <- list.files("/home/sty/cfDNA_benchmark/benchmark_pat/pat_merged/uniform_dis/") # path storing sample data; change the path according to your actual situation
+file_path <- "/home/sty/cfDNA_benchmark/benchmark_pat/pat_merged/uniform_dis/" # path storing sample data; change the path according to your actual situation
+file_names <- list.files(file_path) 
 file_names <- file_names[grep('.beta',file_names)]
 cpgs_all <- as.data.frame(matrix(ncol = 0,nrow = nrow(tims)))
 colnames_samples_res <- c()
 for (j in 1:length(file_names)){
-  fname <- file_names[j]
+  fname <- paste0(file_path,file_names[j])
   N <- file.info(fname)$size
   content <- matrix(readBin(fname, "integer", N, size = 1, signed = FALSE), N / 2, 2, byrow=TRUE)
   sample_meth <- paste0('sample',j,'_METH')
