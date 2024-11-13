@@ -12,14 +12,18 @@ This repository contains scripts that were used to generate resutls in paper tit
 **2. Deconvolution/**: This directory contains scripts for cfDNA deconvolution analysis using the five evaluated methods.<br>
 
 **3. Evaluation/**: This directory contains scripts to evaluate the deconvolution performance of the five methods under various scenarios.<br>
-	&emsp;&emsp;**3.1 Evaluation_markers_selection/**: This directory stores scripts for the evaluation of the cell-type specificity and variability of reference markers selected by each deconvolution method.<br>
+	&emsp;&emsp;**3.1 Evaluation_markers_selection/**: This directory stores scripts for the evaluation of the cell type specificity, non-redundancy, and variability of the reference markers identified by each deconvolution method.<br>
 	&emsp;&emsp;_MethyMark_evaluation.sh_: This script is used to evaluate the specificity of the reference markers selected by each method using data from MethyMark database.<br>
 	&emsp;&emsp;_ImmuMethy_evaluation.sh_: This script is used to evaluate the variability of the reference markers selected by each method using data from ImmuMethy database.<br>
-	&emsp;&emsp;**3.2 Evaluation_depth_filter/**: This directory stores scripts to evaluate the influence of sequencing depth filters.<br>
+ 	&emsp;&emsp;_cell_type_non-redundancy_evaluation.R_: This script is used to evaluate the non-redundancy of the reference markers.<br>
+  	&emsp;&emsp;_cell_type_specificity_evaluation.R_: This script is used to evaluate the specificity of the reference markers.<br>
+	&emsp;&emsp;**3.2 Evaluation_sequencing_depth/**: This directory stores scripts to evaluate the influence of sequencing depth filters.<br>
 	&emsp;&emsp;**3.3 Evaluation_missing_markers&cell_types/**: This directory stores scripts to assess the impact of missing markers.<br>
-	&emsp;&emsp;**3.4 Evaluation_metrics/**: This directory stores scripts used to calculate the Pearson correlation and the root-mean-square error (RMSE) values.<br>
-	&emsp;&emsp;_cell_type_metrics_evaluation.py_: This script is used to compute Pearson correlation and RMSE between the ground-truth cell type proportions and the predicted proportions from different deconvolution methods for each cell type in the reference atlas across 100 cfDNA mixtures.<br>
-	&emsp;&emsp;_sample_metrics_evaluation.py_: This script is used to compute Pearson correlation and RMSE between the ground-truth cell type proportions and the predicted proportions from different deconvolution methods for each cfDNA mixture.
+ 	&emsp;&emsp;**3.4 Evaluation_real-world_datasets/**: This directory stores scripts to assess the deconvolution performance on real-world datasets.<br>
+	&emsp;&emsp;**3.5 Evaluation_metrics/**: This directory stores scripts used to calculate root mean squared errors (RMSE), Pearson’s correlation coefficient, Spearman’s rank correlation, Lin’s Concordance Correlation Coefficient (CCC), and Jensen–Shannon divergence (JSD).<br>
+	&emsp;&emsp;_sample_metrics_evaluation.R_: This script is used to compute root mean squared errors (RMSE), Pearson’s correlation coefficient, Spearman’s rank correlation, Lin’s Concordance Correlation Coefficient (CCC), and Jensen–Shannon divergence (JSD) between cell type proportions predicted by each cfDNA deconvolution method with the ground-truth cell type proportions.<br>
+	&emsp;&emsp;_cal_NPS.R_: This script is used to calculate the normalized performance score (NPS).<br>
+ 	&emsp;&emsp;_cal_overall_performance.R_: This script is used to summarize the overall performance of each method across different datasets and evaluation factors.
 
 ## Authors
 - TongYue Sun (suntongyue@foxmail.com)
