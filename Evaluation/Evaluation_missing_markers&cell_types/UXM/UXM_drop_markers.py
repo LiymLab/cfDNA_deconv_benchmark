@@ -5,7 +5,7 @@ import numpy as np
 import random
 import os
 
-for m in [15,20,25,30,35,40,45,50,60,70,80,90,100]:
+for m in [15,20,25,30,35,40,45,50,60,70,80,90,100,150,200,250,300]:
     for drop in [0.1,0.2,0.3,0.4,0.5]:
         for rep in range(20):
             
