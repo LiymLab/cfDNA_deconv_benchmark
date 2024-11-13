@@ -40,6 +40,7 @@ do
 done
 
 #3.MethAtlas markers 
+#Extract the point coordinates from the MethAtlas marker file.
 
 awk -F, '{print $1 "\t" $2 "\t" $3+1}' methatlas_markers.csv > /~/MethAtlas/site_test.bed
 bedtools merge -i /~/MethAtlas/site_test.bed > /~/exchange_markers/MethAtlas/site2.bed
