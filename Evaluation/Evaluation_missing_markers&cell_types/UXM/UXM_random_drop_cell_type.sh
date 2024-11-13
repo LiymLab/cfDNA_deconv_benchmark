@@ -2,8 +2,8 @@
 ##UXM_workflow##
 #Evaluation of cell type(s) in the reference methylation atlas
 
-#j: Two sets of cfDNA mixture data: Uniform Distribution and constrained Random Distribution
-for j in uniform_dis Constrained_random_dis 
+#j: cfDNA mixture datasets: Uniform Distribution constrained Random Distribution dirichlet distribution
+for j in uniform_dis Constrained_random_dis dirichlet_dis
 do
     #i: cell type(s) we will drop
     for i in Endothelium Blood-Granul Adipocytes Blood-NK Head-Neck-Ep  Blood-B Blood-Mono+Macro Blood-T PB FE BL TC HH GC TS BO NL MB 
