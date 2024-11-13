@@ -32,10 +32,10 @@ for (i in 1:length(file_names)){
   file_name <- paste0(file_path,file_names[i])
   sample_onehot <- fread(file_name,skip = 1)
   colnames(sample_onehot) <- c('index','one','two','three','four','five')
-  sample_onehot <- sample_onehot[,.(sum(one),sum(two),sum(three),sum(four),sum(five)),by=index] #加和每个site的数据
+  sample_onehot <- sample_onehot[,.(sum(one),sum(two),sum(three),sum(four),sum(five)),by=index] 
   data <- left_join(bin_index,sample_onehot,by = 'index',all.x = TRUE)
   data[is.na(data)] <- 0
-  data_res <- data[,.(sum(V1),sum(V2),sum(V3),sum(V4),sum(V5)),by=.(chrom,start,end)] #加和每个region的数据
+  data_res <- data[,.(sum(V1),sum(V2),sum(V3),sum(V4),sum(V5)),by=.(chrom,start,end)] 
   data_res <- data_res[,c(4:8)]
   write_name <- paste0('/',distribution,'/sample_data/','sample_',i,'_data.txt')
   write.table(data_res,file = write_name,row.names = FALSE,col.names = FALSE,quote = FALSE,sep = '\t')
@@ -49,8 +49,8 @@ for (i in 1:length(file_names)){
   file_name <- paste0(file_path,file_names[i])
   sample_onehot <- fread(file_name,skip = 1)
   colnames(sample_onehot) <- c('index','one','two','three','four','five')
-  sample_onehot <- sample_onehot[,.(sum(one),sum(two),sum(three),sum(four),sum(five)),by=index] #加和每个site的数据
-  data <- merge(bin_index,sample_onehot,by = 'index',all.x = TRUE) #挑选对应site的数据
+  sample_onehot <- sample_onehot[,.(sum(one),sum(two),sum(three),sum(four),sum(five)),by=index] 
+  data <- merge(bin_index,sample_onehot,by = 'index',all.x = TRUE)
   data[is.na(data)] <- 0
   data_res <- data[,c(5:9)]
   write_name <- paste0('/home/zyc/celfeer_exchange_markers/celfeer_markers-of-cfnome/',distribution,'/sample_data/','sample_',i,'_data.txt')
