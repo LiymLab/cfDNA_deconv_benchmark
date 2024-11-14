@@ -10,6 +10,7 @@ import numpy as np
 
 # nohup python ref_atlas_select.py > ref_atlas_select.log 2>&1 &
 
+
 def read_and_process_files(file_list, output_dir, chrX_indices):
     # Initialize an empty DataFrame to store methylation ratios
     all_covered = pd.DataFrame()
@@ -50,7 +51,7 @@ def read_and_process_files(file_list, output_dir, chrX_indices):
         all_covered.iloc[:, 1:].var(axis=1) >= var_threshold
     ].dropna()
 
-    # drop sex Chr 
+    # drop sex Chr
     drop_indices = all_covered_var[all_covered_var["cpg_idx"].isin(chrX_indices)].index
 
     # Drop the rows from ref_df based on the identified indices
@@ -60,7 +61,7 @@ def read_and_process_files(file_list, output_dir, chrX_indices):
 
 
 def filter_depth(file_list, ref_df, depth_filter, folder_path):
-    # Initialize a DataFrame 
+    # Initialize a DataFrame
     all_covered = pd.DataFrame()
 
     # Iterate through the file list
@@ -210,7 +211,8 @@ def extend_and_filter_cpgs(
 
     reference_unique_df = reference_df.drop_duplicates(subset="cpg_idx")
     # reference_unique_df.to_csv(output_file, index=False)
-    # ...
+    # Convert 'cpg_idx' to int
+    reference_unique_df["cpg_idx"] = reference_unique_df["cpg_idx"].astype(int)
     output_file = os.path.join(output_dir, f"ref_depth_{depth}_unique.csv")
     reference_unique_df.to_csv(output_file, index=False)
 
@@ -220,9 +222,9 @@ def main():
     for depth in depth_fliter:
         input_dir = "/cfDNA_benchmark/benchmark_pat/pat_merged/ref"
         output_dir = f"/cfDNA_benchmark/meth_atlas_data/ref_median_{depth}/"
-        id_list = pd.read_csv(
-            f"~/cfDNA_benchmark/benchmark_pat/crd_dis/crd_dis.csv"
-        )["ID"].to_list()
+        id_list = pd.read_csv(f"~/cfDNA_benchmark/benchmark_pat/crd_dis/crd_dis.csv")[
+            "ID"
+        ].to_list()
 
         file_list = [f + ".hg38.beta" for f in id_list]
         file_list.sort()
@@ -236,13 +238,14 @@ def main():
         illumina_df = pd.read_table("/bed_hg38/bed_hg38.bed", header=None)
         illumina_df.columns = ["chrom", "start", "end", "cpg_idx"]
         # Filter sex chr
-        chrX_indices = illumina_df[illumina_df['chrom'].isin(['chrX', 'chrY'])]['cpg_idx']
+        chrX_indices = illumina_df[illumina_df["chrom"].isin(["chrX", "chrY"])][
+            "cpg_idx"
+        ]
 
         # Process files
         all_covered_var = read_and_process_files(file_list, output_dir, chrX_indices)
         # Depth filter
         all_covered_var = filter_depth(file_list, all_covered_var, depth, output_dir)
-
 
         # Filter and normalize data, get top K markers.
         merged_df = filter_and_normalize_data(
@@ -264,7 +267,9 @@ def main():
         )
         df_unique.columns = ["cpg_idx"]
         concat_df = pd.merge(all_covered_var, df_unique, on="cpg_idx")
-        extend_and_filter_cpgs(concat_df, all_covered_var, output_dir=output_dir,depth = depth)
+        extend_and_filter_cpgs(
+            concat_df, all_covered_var, output_dir=output_dir, depth=depth
+        )
 
 
 if __name__ == "__main__":

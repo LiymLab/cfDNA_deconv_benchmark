@@ -209,7 +209,8 @@ def extend_and_filter_cpgs(
         ]
 
     reference_unique_df = reference_df.drop_duplicates(subset="cpg_idx")
-    # reference_unique_df.to_csv(output_file, index=False)
+    # Convert 'cpg_idx' to int
+    reference_unique_df["cpg_idx"] = reference_unique_df["cpg_idx"].astype(int)
     # ...
     output_file = os.path.join(output_dir, f"ref_depth_{depth}_unique.csv")
     reference_unique_df.to_csv(output_file, index=False)
