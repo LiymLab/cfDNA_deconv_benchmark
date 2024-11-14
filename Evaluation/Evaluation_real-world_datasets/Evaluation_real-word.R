@@ -1,3 +1,5 @@
+##You can use the scripts in the Deconvolution folder to run and obtain the cell type proportion files for the five methods under real data conditions.
+
 #statistical differences in cfDNA fractions derived from affected tissues between diseased and healthy individuals
 library(dplyr)
 library(ggplot2)
