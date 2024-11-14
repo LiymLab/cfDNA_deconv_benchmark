@@ -1,4 +1,4 @@
-#Taking the cfmethcyl dataset as an example
+#Taking thecfmethcyl dataset as an example
 data_path=/rawdata/fastq
 bam_path=/bam/path/
 list="cfmethcyl_sample_names" 
