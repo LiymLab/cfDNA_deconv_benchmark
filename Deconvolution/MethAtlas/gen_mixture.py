@@ -5,7 +5,8 @@ import shutil
 import numpy as np
 import glob
 
-def read_and_process_files(file_list, output_dir,ref_df):
+
+def read_and_process_files(file_list, output_dir, ref_df):
     # Initialize an empty DataFrame to store methylation ratios
     all_covered = pd.DataFrame()
 
@@ -36,12 +37,18 @@ def read_and_process_files(file_list, output_dir,ref_df):
     # Move the 'cpg_idx' column to the beginning
     last_col = all_covered.pop("cpg_idx")
     all_covered.insert(0, "cpg_idx", last_col)
-    all_covered = all_covered[all_covered['cpg_idx'].isin(ref_df['cpg_idx'])]
-    all_covered.to_csv(f'{output_dir}/full_atlas.csv',index = False)
+    all_covered = all_covered[all_covered["cpg_idx"].isin(ref_df["cpg_idx"])]
+
+    all_covered["cpg_idx"] = all_covered["cpg_idx"].astype(int)
+
+    all_covered.to_csv(f"{output_dir}/full_atlas.csv", index=False)
     return None
 
+
 for i in [15]:
-    ref_df = pd.read_csv(f'/cfDNA_benchmark/meth_atlas_data/ref_median_{i}/ref_depth_{i}_unique.csv')
+    ref_df = pd.read_csv(
+        f"/cfDNA_benchmark/meth_atlas_data/ref_median_{i}/ref_depth_{i}_unique.csv"
+    )
     input_dir = f"/cfDNA_benchmark/benchmark_pat/pat_merged/mix"
     output_dir = f"/cfDNA_benchmark/meth_atlas_data/uniform/ref_median_{i}"
     file_extension = "*.beta"

@@ -38,6 +38,9 @@ def read_and_process_files(file_list, output_dir, ref_df):
     last_col = all_covered.pop("cpg_idx")
     all_covered.insert(0, "cpg_idx", last_col)
     all_covered = all_covered[all_covered["cpg_idx"].isin(ref_df["cpg_idx"])]
+
+    all_covered["cpg_idx"] = all_covered["cpg_idx"].astype(int)
+
     all_covered.to_csv(f"{output_dir}/full_atlas.csv", index=False)
     return None
 
