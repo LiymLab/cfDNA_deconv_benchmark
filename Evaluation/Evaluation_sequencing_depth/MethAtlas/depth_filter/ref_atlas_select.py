@@ -8,28 +8,14 @@ import shutil
 import numpy as np
 
 
-# nohup python ref_atlas_select.py > ref_atlas_select.log 2>&1 &
-
-
 def read_and_process_files(file_list, output_dir, chrX_indices):
-    # Initialize an empty DataFrame to store methylation ratios
     all_covered = pd.DataFrame()
 
-    # Iterate through the file list
     for file_path in file_list:
-        # Construct the full file path
         file_path = os.path.join(output_dir, file_path)
-
-        # Read the file content
         content = np.fromfile(file_path, dtype=np.uint8).reshape((-1, 2))
-
-        # Calculate the methylation ratio
         meth_ratio = content[:, 0] / content[:, 1]
-
-        # Get the file name (without extension) as the column name
         file_name = os.path.splitext(os.path.basename(file_path))[0]
-
-        # Add the methylation ratio as a column in the DataFrame
         all_covered[file_name] = meth_ratio
 
     # Reindex the DataFrame, add 'cpg_idx' column, and remove the old index
@@ -78,25 +64,14 @@ def filter_depth(file_list, ref_df, depth_filter, folder_path):
         # Add the coverage data as a column in the DataFrame
         all_covered[file_name] = covered
 
-    # Calculate the median coverage per row
     row_median = all_covered.median(axis=1)
-
-    # Identify the indices where median coverage is less than the depth filter
     filtered_indices = row_median[row_median < depth_filter].index
-
-    # Create a DataFrame containing the filtered indices
     result_df = pd.DataFrame({"cpg_idx": filtered_indices})
 
-    # Adjust the 'cpg_idx' values
     result_df["cpg_idx"] = result_df["cpg_idx"] + 1
 
-    # Identify the indices in ref_df that need to be dropped
     drop_indices = ref_df[ref_df["cpg_idx"].isin(result_df["cpg_idx"])].index
-
-    # Drop the rows from ref_df based on the identified indices
     new_ref_df = ref_df.drop(drop_indices)
-
-    # Return the updated reference DataFrame
     return new_ref_df
 
 
@@ -210,15 +185,17 @@ def extend_and_filter_cpgs(
         ]
 
     reference_unique_df = reference_df.drop_duplicates(subset="cpg_idx")
-    # reference_unique_df.to_csv(output_file, index=False)
     # Convert 'cpg_idx' to int
     reference_unique_df["cpg_idx"] = reference_unique_df["cpg_idx"].astype(int)
+    # ...
     output_file = os.path.join(output_dir, f"ref_depth_{depth}_unique.csv")
     reference_unique_df.to_csv(output_file, index=False)
 
 
 def main():
-    depth_fliter = [15]
+    depth_fliter = np.concatenate(
+        [np.arange(15, 51, 5), np.arange(60, 101, 10), np.arange(100, 301, 50)]
+    )
     for depth in depth_fliter:
         input_dir = (
             f"/cfDNA_benchmark/benchmark_pat/pat_merged/ref"  # folder of beta files

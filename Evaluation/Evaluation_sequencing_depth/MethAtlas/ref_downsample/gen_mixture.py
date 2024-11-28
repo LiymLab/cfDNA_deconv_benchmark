@@ -45,19 +45,27 @@ def read_and_process_files(file_list, output_dir, ref_df):
     return None
 
 
-for i in np.concatenate(
-    [np.arange(15, 51, 5), np.arange(60, 101, 10), np.arange(100, 251, 50)]
-):
-    ref_df = pd.read_csv(
-        f"/cfDNA_benchmark/meth_atlas_data/ref_median_{i}/ref_depth_{i}_unique.csv"
-    )
-    input_dir = f"/cfDNA_benchmark/benchmark_pat/pat_merged/mix"
-    output_dir = f"/cfDNA_benchmark/meth_atlas_data/uniform/ref_median_{i}"
-    file_extension = "*.beta"
-    file_list = glob.glob(os.path.join(input_dir, file_extension))
-    file_list.sort()
-    illumina_df = pd.read_table("/bed_hg38/bed_hg38.bed", header=None)
-    illumina_df.columns = ["chrom", "start", "end", "cpg_idx"]
+for dist in ["crd", "uniform", "dirichlet"]:
 
-    # Process files
-    all_covered_var = read_and_process_files(file_list, output_dir, ref_df)
+    for i in [
+        "subsample_.03",
+        "subsample_.16",
+        "subsample_.33",
+        "subsample_.50",
+        "subsample_.66",
+        "subsample_.83",
+    ]:
+        depth = 15
+        ref_df = pd.read_csv(
+            f"/cfDNA_benchmark/meth_atlas_data/ref_median_{i}/ref_depth_{i}_unique.csv"
+        )
+        input_dir = f"/cfDNA_benchmark/benchmark_pat/pat_merged/mix/{dist}"
+        output_dir = f"/cfDNA_benchmark/meth_atlas_data/{dist}/ref_median_{i}"
+        file_extension = "*.beta"
+        file_list = glob.glob(os.path.join(input_dir, file_extension))
+        file_list.sort()
+        illumina_df = pd.read_table("/bed_hg38/bed_hg38.bed", header=None)
+        illumina_df.columns = ["chrom", "start", "end", "cpg_idx"]
+
+        # Process files
+        all_covered_var = read_and_process_files(file_list, output_dir, ref_df)

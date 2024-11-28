@@ -217,15 +217,21 @@ def extend_and_filter_cpgs(
 
 
 def main():
-    depth_fliter = np.concatenate(
-        [np.arange(15, 51, 5), np.arange(60, 101, 10), np.arange(100, 301, 50)]
-    )
-    for depth in depth_fliter:
-        input_dir = "/cfDNA_benchmark/benchmark_pat/pat_merged/ref"
-        output_dir = f"/cfDNA_benchmark/meth_atlas_data/ref_median_{depth}/"
+    depth = 15
+    down_range = [
+        "subsample_.03",
+        "subsample_.16",
+        "subsample_.33",
+        "subsample_.50",
+        "subsample_.66",
+        "subsample_.83",
+    ]
+    for down in down_range:
+        input_dir = f"/cfDNA_benchmark/benchmark_pat/pat_merged/ref/{down}"  # folder of beta files
+        output_dir = f"/cfDNA_benchmark/meth_atlas_data/ref_median_{down}/"
         id_list = pd.read_csv(f"~/cfDNA_benchmark/benchmark_pat/crd_dis/crd_dis.csv")[
             "ID"
-        ].to_list()
+        ].to_list()  # get the list of cell types
 
         file_list = [f + ".hg38.beta" for f in id_list]
         file_list.sort()
@@ -245,7 +251,7 @@ def main():
 
         # Process files
         all_covered_var = read_and_process_files(file_list, output_dir, chrX_indices)
-        # Depth filter
+        # down filter
         all_covered_var = filter_depth(file_list, all_covered_var, depth, output_dir)
 
         # Filter and normalize data, get top K markers.
@@ -269,7 +275,7 @@ def main():
         df_unique.columns = ["cpg_idx"]
         concat_df = pd.merge(all_covered_var, df_unique, on="cpg_idx")
         extend_and_filter_cpgs(
-            concat_df, all_covered_var, output_dir=output_dir, depth=depth
+            concat_df, all_covered_var, output_dir=output_dir, depth=down
         )
 
 
