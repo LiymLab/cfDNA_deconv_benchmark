@@ -47,7 +47,7 @@ def main():
         "--dis",
         type=str,
         required=True,
-        choices=["uniform", "crd"],
+        choices=["uniform", "crd", "dirichlet"],
         help="The distribution type (either uniform or crd).",
     )
 
