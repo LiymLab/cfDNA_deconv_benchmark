@@ -30,5 +30,5 @@ This repository contains scripts that were used to generate results in a paper t
 - TongYue Sun (suntongyue@foxmail.com)
 - Jinqi Yuan (jqyuanjqyuan24@stu.suda.edu.cn)
 - Yacheng Zhu (yachengzhu_2002@foxmail.com)
-- Yumei Li (yumei.li@uci.edu)
+- Yumei Li (ymli12@suda.edu.cn)
   
