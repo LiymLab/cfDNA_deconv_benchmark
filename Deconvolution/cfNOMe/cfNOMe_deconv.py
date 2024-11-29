@@ -48,7 +48,7 @@ def main():
         type=str,
         required=True,
         choices=["uniform", "crd", "dirichlet"],
-        help="The distribution type (either uniform or crd).",
+        help="The distribution type (either dirichlet, uniform or crd).",
     )
 
     args = parser.parse_args()
