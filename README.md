@@ -1,4 +1,4 @@
-Systematic Evaluation of Methylation-based Cell Type Deconvolution Methods for Plasma Cell-free DNA
+Systematic evaluation of methylation-based cell type deconvolution methods for plasma cell-free DNA
 =================================================================================
 This repository contains scripts that were used to generate results in a paper titled "**Systematic Evaluation of Methylation-based Cell Type Deconvolution Methods for Plasma Cell-free DNA**".  
 
