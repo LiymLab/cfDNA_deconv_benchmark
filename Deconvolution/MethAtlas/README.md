@@ -4,6 +4,8 @@
 
 MethAtlas does not provide a workflow based on PAT/Beta files. To address this limitation, we have developed two scripts: [`ref_atlas_select.py`](https://github.com/LiymLab/cfDNA_deconv_benchmark/tree/main/Deconvolution/MethAtlas/ref_atlas_select.py) and [`gen_mixture.py`](https://github.com/LiymLab/cfDNA_deconv_benchmark/tree/main/Deconvolution/MethAtlas/gen_mixture.py). These scripts generate the necessary reference and sample files required by MethAtlas using Beta files.
 
+Some versions of pandas may encounter exceptions during reading. In such cases, we recommend storing the contents of the `cpg_idx` column as an `int` type to resolve the issue.
+
 A simple execution example is provided in the Jupyter notebook [`MethAtlas_deconv.ipynb`](https://github.com/LiymLab/cfDNA_deconv_benchmark/tree/main/Deconvolution/MethAtlas/MethAtlas_deconv.ipynb), which demonstrates how to use these scripts effectively.
 
 ## Usage
