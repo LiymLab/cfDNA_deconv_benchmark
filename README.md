@@ -1,6 +1,6 @@
 Systematic evaluation of methylation-based cell type deconvolution methods for plasma cell-free DNA
 =================================================================================
-This repository contains scripts that were used to generate results in a paper titled "**Systematic Evaluation of Methylation-based Cell Type Deconvolution Methods for Plasma Cell-free DNA**".  
+This repository contains scripts that were used to generate results in a paper titled "**Systematic evaluation of methylation-based cell type deconvolution methods for plasma cell-free DNA**".  
 
 **1. DataProcessing/**: This directory contains scripts for data pre-processing of the benchmark study.<br>
   _gen_Distributions.ipynb_: This script is used to generate two cell type distributions for the generation of cfDNA mixtures.<br>
