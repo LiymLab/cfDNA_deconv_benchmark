@@ -226,64 +226,57 @@ def main():
         "subsample_.66",
         "subsample_.83",
     ]
-    for dist in ["crd", "uniform", "dirichlet"]:
-        for down in down_range:
-            input_dir = f"/cfDNA_benchmark/benchmark_pat/pat_merged/ref/{dist}/{down}"  # folder of beta files
-            output_dir = f"/cfDNA_benchmark/meth_atlas_data/{dist}/ref_median_{down}/"
-            id_list = pd.read_csv(
-                f"~/cfDNA_benchmark/benchmark_pat/crd_dis/crd_dis.csv"
-            )[
-                "ID"
-            ].to_list()  # get the list of cell types
+    for down in down_range:
+        input_dir = f"/cfDNA_benchmark/benchmark_pat/pat_merged/ref/{down}"  # folder of beta files
+        output_dir = f"/cfDNA_benchmark/meth_atlas_data/ref_median_{down}/"
+        id_list = pd.read_csv(f"~/cfDNA_benchmark/benchmark_pat/crd_dis/crd_dis.csv")[
+            "ID"
+        ].to_list()  # get the list of cell types
 
-            file_list = [f + ".hg38.beta" for f in id_list]
-            file_list.sort()
+        file_list = [f + ".hg38.beta" for f in id_list]
+        file_list.sort()
 
-            # Copy files
-            for file_name in file_list:
-                input_file = os.path.join(input_dir, file_name)
-                output_file = os.path.join(output_dir, file_name)
-                shutil.copy(input_file, output_file)
-            # Read hg38.bed file
-            illumina_df = pd.read_table("/bed_hg38/bed_hg38.bed", header=None)
-            illumina_df.columns = ["chrom", "start", "end", "cpg_idx"]
-            # Filter sex chr
-            chrX_indices = illumina_df[illumina_df["chrom"].isin(["chrX", "chrY"])][
-                "cpg_idx"
-            ]
+        # Copy files
+        for file_name in file_list:
+            input_file = os.path.join(input_dir, file_name)
+            output_file = os.path.join(output_dir, file_name)
+            shutil.copy(input_file, output_file)
+        # Read hg38.bed file
+        illumina_df = pd.read_table("/bed_hg38/bed_hg38.bed", header=None)
+        illumina_df.columns = ["chrom", "start", "end", "cpg_idx"]
+        # Filter sex chr
+        chrX_indices = illumina_df[illumina_df["chrom"].isin(["chrX", "chrY"])][
+            "cpg_idx"
+        ]
 
-            # Process files
-            all_covered_var = read_and_process_files(
-                file_list, output_dir, chrX_indices
-            )
-            # down filter
-            all_covered_var = filter_depth(
-                file_list, all_covered_var, depth, output_dir
-            )
+        # Process files
+        all_covered_var = read_and_process_files(file_list, output_dir, chrX_indices)
+        # down filter
+        all_covered_var = filter_depth(file_list, all_covered_var, depth, output_dir)
 
-            # Filter and normalize data, get top K markers.
-            merged_df = filter_and_normalize_data(
-                all_covered_var, K=100, output_dir=output_dir
-            )
+        # Filter and normalize data, get top K markers.
+        merged_df = filter_and_normalize_data(
+            all_covered_var, K=100, output_dir=output_dir
+        )
 
-            # Merge and filter CpGs
-            merge_and_filter_cpgs(all_covered_var, illumina_df, output_dir=output_dir)
+        # Merge and filter CpGs
+        merge_and_filter_cpgs(all_covered_var, illumina_df, output_dir=output_dir)
 
-            # Run bedtools commands
-            run_bedtools_commands(output_dir=output_dir)
+        # Run bedtools commands
+        run_bedtools_commands(output_dir=output_dir)
 
-            # Run awk command
-            run_awk_command(output_dir=output_dir)
+        # Run awk command
+        run_awk_command(output_dir=output_dir)
 
-            # Extend and filter CpGs
-            df_unique = pd.read_csv(
-                os.path.join(output_dir, "overlapped_cpg.bed"), sep="\t"
-            )
-            df_unique.columns = ["cpg_idx"]
-            concat_df = pd.merge(all_covered_var, df_unique, on="cpg_idx")
-            extend_and_filter_cpgs(
-                concat_df, all_covered_var, output_dir=output_dir, depth=down
-            )
+        # Extend and filter CpGs
+        df_unique = pd.read_csv(
+            os.path.join(output_dir, "overlapped_cpg.bed"), sep="\t"
+        )
+        df_unique.columns = ["cpg_idx"]
+        concat_df = pd.merge(all_covered_var, df_unique, on="cpg_idx")
+        extend_and_filter_cpgs(
+            concat_df, all_covered_var, output_dir=output_dir, depth=down
+        )
 
 
 if __name__ == "__main__":
