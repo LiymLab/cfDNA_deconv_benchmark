@@ -31,4 +31,6 @@ This repository contains scripts that were used to generate results in a paper t
 - Jinqi Yuan (jqyuanjqyuan24@stu.suda.edu.cn)
 - Yacheng Zhu (yachengzhu_2002@foxmail.com)
 - Yumei Li (ymli12@suda.edu.cn)
-  
+
+## License
+Even though these scripts on GitHub are under the MIT license, they are prohibited from being used for commercial purposes.
