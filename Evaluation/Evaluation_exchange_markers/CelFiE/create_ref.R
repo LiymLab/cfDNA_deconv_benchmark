@@ -34,7 +34,7 @@ for (j in 1:length(file_names)){
 for (j in 1:length(file_names)){
   fname <- paste0(file_path,file_names[j])
   N <- file.info(fname)$size
-  content <- matrix(readBin(fname, "integer", N, size = 1, signed = FALSE), N / 2, 2, byrow=TRUE)     #处理beta文件得到meth和depth信息
+  content <- matrix(readBin(fname, "integer", N, size = 1, signed = FALSE), N / 2, 2, byrow=TRUE)     
   content <- data.frame(content[index,])
   cpgs_all <- cbind(cpgs_all,content)
 }
